@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/batch.dart';
 import 'package:sizer/sizer.dart';
+import 'package:todo_list/date_item.dart';
 
 class NewTask extends StatefulWidget {
   NewTask({super.key});
@@ -47,19 +48,6 @@ class NewTaskState extends State<NewTask> {
             right: 2.w),
         child: Column(
           children: [
-            SizedBox(
-              width: 100.w,
-              height: 50.w,
-              child: PageView.builder(
-
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  controller: _pageController,
-                  itemCount: 20,
-                  itemBuilder: (context, i) {
-                    return Center(child:
-                    Container(color: Colors.grey,child: Text("asdasdasd}",style: TextStyle(color: Colors.black),)));
-                  }),
-            ),
             Row(
               children: [
                 Batch(),
@@ -85,6 +73,37 @@ class NewTaskState extends State<NewTask> {
                   });
                 },
               ),
+            ),
+            Row(mainAxisAlignment:MainAxisAlignment.spaceEvenly,children: [
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+              Text("data"),
+            ],),
+            SizedBox(
+              width: 100.w,
+              height: 15.w,
+              child: PageView.builder(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  controller: _pageController,
+                  itemCount: 20,
+                  itemBuilder: (context, i) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        DateItem(week_index: i,index: 0,),
+                        DateItem(week_index: i,index: 1,),
+                        DateItem(week_index: i,index: 2,),
+                        DateItem(week_index: i,index: 3,),
+                        DateItem(week_index: i,index: 4,),
+                        DateItem(week_index: i,index: 5,),
+                        DateItem(week_index: i,index: 6,)
+                      ],
+                    );
+                  }),
             ),
           ],
         ),
